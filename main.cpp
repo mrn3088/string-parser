@@ -15,4 +15,3 @@ int main() {
 
 
 }
-// Hi Rick, I sent you an email about the string formatter
