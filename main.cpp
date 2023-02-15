@@ -1,17 +1,13 @@
-#include "parser.hpp"
-
+#include "templater.hpp"
 int main() {
 	std::string a = "abc{}ef{}";
 	std::string b = "My favorite {} is {}{}!";
-	std::cout << Parser::formatted(a, "d", "g") << std::endl;
-	std::cout << Parser::formatted(b, "class", "ECE", "141A") << std::endl;
+	std::string c = "CSE";
 
-	// exception
-	try {
-		std::cout << Parser::formatted(b, "class", "ECE", "141", "A") << std::endl;
-	} catch (std::invalid_argument& e) {
-		std::cout << "exception caught!" << std::endl;
-	}
-
-
+	stringTemplate theTemplate;
+	std::cout << theTemplate.templateString(a,"d","g") << std::endl;
+	std::cout << theTemplate.getPlaceholder() << std::endl;
+	std::cout << theTemplate.usePlaceHolder("CS").templateString(c,"EC") << std::endl;
+	std::cout << theTemplate << std::endl;
+	std::cout << theTemplate.usePlaceHolder("{}").templateString(b,"class", "ECE", 141) << std::endl;
 }
